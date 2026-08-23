@@ -23,7 +23,7 @@ EDA: распределения признаков, корреляционная
 Отбор признаков: SelectKBest (ANOVA F-test) + анализ зануления коэффициентов L1 как встроенный метод отбора.
 Метрики: Accuracy, F1 macro/weighted, ROC-AUC (OvR), Log Loss, Cohen's Kappa, classification report, confusion matrix.
 
-Изначально L2/L1 обучались на solver='liblinear' (только режим One-vs-Rest), а ElasticNet — на solver='saga' (режим multinomial/softmax). Это давало некорректно заниженный результат для L2/L1 (~0.78 F1 macro). После перевода всех моделей на единый solver='saga' (multinomial) результаты L2/L1 выросли до ~0.95-0.96 и стали сопоставимы с ElasticNet — сравнение моделей приведено ниже.
+Изначально L2/L1 обучались на solver='liblinear' (только режим One-vs-Rest), а ElasticNet — на solver='saga' (режим softmax). Это давало некорректно заниженный результат для L2/L1 (~0.78 F1 macro). После перевода всех моделей на единый solver='saga' (multinomial) результаты L2/L1 выросли до ~0.95-0.96 и стали сопоставимы с ElasticNet — сравнение моделей приведено ниже.
 
 Результаты
 Итоговое сравнение (F1 macro на test, лучшие модели после тюнинга)
